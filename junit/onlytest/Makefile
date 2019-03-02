@@ -4,7 +4,7 @@ compile:
 	javac src/TestJunit.java src/TestRunner.java -d bin
 
 test:
-	java bin/TestRunner
+	cd bin ; java TestRunner
 
 clean:
-	rm TestJunit.class TestRunner.class
+	rm bin/TestJunit.class bin/TestRunner.class
