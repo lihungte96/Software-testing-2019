@@ -4,8 +4,8 @@
 `$ . junit_init.sh`
 
 ## create executable file
-`$ cd dir
-$ make`
+`$ cd dir`
+`$ make`
 
 ## run testcase
 `$ make test`
