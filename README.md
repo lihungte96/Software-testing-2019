@@ -1,4 +1,4 @@
 # Software Testing class 2019
 
-# `Junit <junit/junit.rst>`
+## [Junit](junit)
 Week 3: 2019/03/07
