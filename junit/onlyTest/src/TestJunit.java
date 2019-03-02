@@ -1,9 +1,10 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+
 public class TestJunit {
    @Test
-   public void testAdd() {
+   public void testEquals() {
       String str= "Junit is working fine";
-      assertEquals("Junit is working fine",str);
+      assertEquals("Junit is working fine", str);
    }
 }
