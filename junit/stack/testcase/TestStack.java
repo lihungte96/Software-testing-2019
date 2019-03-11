@@ -12,15 +12,19 @@ public class TestStack {
 
     @Before
     public void before() {
+        // initial some node in stack structure
         stack.push(3);
         stack.push(2);
     }
 
     @After
     public void after() throws Exception {
+        // clean all node in stack
         while (stack.size() != 0) {
             stack.pop();
         }
+        // try to create some exception
+	//stack.pop();
     }
 
     @AfterClass

@@ -12,7 +12,7 @@ public class Stack {
         size = 0;
     }
 
-    public int size(){
+    public int size() {
         return this.size;
     }
 
@@ -26,7 +26,7 @@ public class Stack {
 
     public Object pop() throws Exception {
         if (head == null) {
-            throw new Exception();
+            throw new Exception("Pop an empty stack");
         }
         Object tmp = head.data;
         head = head.next;
