@@ -1,4 +1,4 @@
-# Junit
+# JUnit
 
 ## Tutorial
 ### init
@@ -15,9 +15,13 @@ $ make
 
 ## syllabus
 ### week3
-[onlyTest] (onlyTest)
-[testCode] (testCode)
+[onlyTest](onlyTest)
+Only JUint test
+[testCode](testCode)
+Simple assert
 
 #week4
-[beforeAfter] (beforeAfter)
-[Stack] (Stack)
+[beforeAfter](beforeAfter)
+Show execution path of before and after annotation
+[Stack](Stack)
+Use stack example show why use before and after annotation
