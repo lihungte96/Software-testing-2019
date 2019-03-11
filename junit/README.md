@@ -16,12 +16,18 @@ $ make
 ## syllabus
 ### week3
 [onlyTest](onlyTest)
+
 Only JUint test
+
 [testCode](testCode)
+
 Simple assert
 
-#week4
+### week4
 [beforeAfter](beforeAfter)
+
 Show execution path of before and after annotation
+
 [Stack](Stack)
+
 Use stack example show why use before and after annotation
