@@ -28,7 +28,7 @@ public class TestException {
             stack.pop();
         }
         // try to create some exception
-	//stack.pop();
+        // stack.pop();
     }
 
     @AfterClass
@@ -47,7 +47,7 @@ public class TestException {
     public void CaseMagic() throws Exception {
         String magic = "c8763";
         stack.push(magic);
-	assertEquals(magic, stack.pop());
+        assertEquals(magic, stack.pop());
     }
 
     @Test

@@ -10,6 +10,7 @@ public class TestDistant {
 		int result = Distant.distant(a, b);
 		assertEquals(expected, result);
 	}
+
 	@Test
 	public void testDistant2() {
 		int a = -50;
