@@ -6,7 +6,7 @@
 
 ### create executable file
 ```
-$ cd dir
+$ cd [onlyTest|testCode|beforeAfte|stack|testException1]
 $ make
 ```
 
@@ -15,13 +15,13 @@ $ make
 
 ## syllabus
 ### week3
-#### [onlyTest](onlyTest)
-Only JUint test
-#### [testCode](testCode)
-Simple assert
+#### [onlyTest](onlyTest) Only JUint test
+#### [testCode](testCode) Simple assert
 
 ### week4
-#### [beforeAfter](beforeAfter)
-Show execution path of before and after annotation
-#### [Stack](Stack)
-Use stack example show why use before and after annotation
+#### [beforeAfter](beforeAfter) Show execution path of before and after annotation
+#### [Stack](Stack) Use stack example show why use before and after annotation
+
+### week5
+#### [testException1](testException1) Use stack example show how to check exception with test
+#### [testException2](testException2) Use stack example show how to check exception with test rule

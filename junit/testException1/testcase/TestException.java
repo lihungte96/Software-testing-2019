@@ -1,7 +1,6 @@
 import org.junit.Test;
 import org.junit.*; // before after ...
 import static org.junit.Assert.assertEquals;
-import org.junit.rules.ExpectedException;
 
 public class TestException {
     private static Stack stack;
@@ -57,11 +56,10 @@ public class TestException {
 
     @Test (expected = EmptyStackException.class)
     public void CaseEmptyException() throws Exception {
-        // clean all node in stack
+        // try to underflow
         while (stack.size() != 0) {
             stack.pop();
         }
-        // try to create some exception
         stack.pop();
     }
 }

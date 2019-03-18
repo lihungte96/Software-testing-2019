@@ -1,8 +1,12 @@
 import org.junit.Test;
 import org.junit.*; // before after ...
 import static org.junit.Assert.assertEquals;
+import org.junit.rules.ExpectedException;
 
-public class TestStack {
+public class TestException {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     private static Stack stack;
 
     @BeforeClass
@@ -11,7 +15,7 @@ public class TestStack {
     }
 
     @Before
-    public void before() {
+    public void before() throws Exception {
         // initial some node in stack structure
         stack.push(3);
         stack.push(2);
@@ -44,5 +48,26 @@ public class TestStack {
         String magic = "c8763";
         stack.push(magic);
 	assertEquals(magic, stack.pop());
+    }
+
+    @Test
+    public void CaseFullException() throws Exception {
+        thrown.expect(FullStackException.class);
+
+        // try to overflow
+        while (true) {
+            stack.push("overflow");
+        }
+    }
+
+    @Test
+    public void CaseEmptyException() throws Exception {
+        thrown.expect(EmptyStackException.class);
+
+        // try to underflow
+        while (stack.size() != 0) {
+            stack.pop();
+        }
+        stack.pop();
     }
 }
