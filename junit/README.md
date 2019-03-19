@@ -23,5 +23,6 @@ $ make
 #### [Stack](Stack): Use stack example show why use before and after annotation
 
 ### week5
+#### [parameterized](parameterized): Use JUnit @parameterized annotation to generate multiple tese case
 #### [testException1](testException1): Use stack example show how to check exception with test
 #### [testException2](testException2): Use stack example show how to check exception with test rule
