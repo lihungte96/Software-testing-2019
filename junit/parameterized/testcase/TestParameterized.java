@@ -21,7 +21,7 @@ public class TestParameterized {
     @Parameters(name = "{index}: Distant.distant({0}, {1})={2}")
     public static Iterable<Object[]> data1() {
         return Arrays.asList(
-                new Object[][] { { 1, 1, 0 }, { 2, 2, 0 }, { 8, 2, 6 }, { 4, 5, 1 }, { 50, 30, 20 }, { 50, -30, 80 } });
+                new Object[][] { { 1, 1, 0 }, { 2, 2, 0 }, { 8, 2, 6 }, { 4, 5, 1 }, { 50, 30, 20 }, { 50, -30, 80 } ,{2,8,-6}});
     }
 
     @Test
