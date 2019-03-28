@@ -8,10 +8,10 @@ import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(value = Parameterized.class)
 public class TestParameterized<T extends Comparable<? super T>> {
-    List<T> list;
+    List<? extends T> list;
     T expected;
 
-    public TestParameterized(List<T> list, T expected) {
+    public TestParameterized(List<? extends T> list, T expected) {
         this.list = list;
         this.expected = expected;
     }
