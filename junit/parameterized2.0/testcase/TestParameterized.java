@@ -16,7 +16,7 @@ public class TestParameterized<T extends Comparable<? super T>> {
         this.expected = expected;
     }
 
-    @Parameters(name = "{index}: Distant.distant({0})={1}")
+    @Parameters(name = "{index}: Min.min({0})={1}")
     public static Iterable<Object[]> data1() {
         return Arrays.asList(new Object[][] { { Arrays.asList(1, 2, 3, 4, 5, 6, 7), 1 },
                 { Arrays.asList("a", "b", "c", "d", "e", "f"), "a" }, { Arrays.asList("aba", "acb", "abc"), "aba" } });
