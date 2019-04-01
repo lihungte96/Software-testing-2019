@@ -8,7 +8,6 @@ public class TestDistant {
 		int b = 30;
 		int expected = 20; // 50 - 30
 		int result = Distant.distant(a, b);
-		result = Distant.distant(a, a);
 		assertEquals(expected, result);
 	}
 

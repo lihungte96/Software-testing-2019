@@ -1,4 +1,4 @@
-all: compile
+all: compile compileTest
 
 Simple: compileTest runCov calCov showCov
 Positive: compileTestPositive runCovPositive calCovPositive showCov
