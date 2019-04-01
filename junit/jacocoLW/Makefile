@@ -6,21 +6,21 @@ Negative: compileTestNegative runCovNegative calCovNegative showCov
 
 compile:
 	mkdir -p bin
-	javac src/Distant.java -d bin
+	javac src/Distant.java src/UnhandledCaseException.java -d bin
 
 compileTest:
 	mkdir -p bin
-	javac -classpath /usr/share/java/junit4.jar src/Distant.java \
+	javac -classpath /usr/share/java/junit4.jar src/Distant.java src/UnhandledCaseException.java \
 	testcase/TestDistant.java testcase/TestRunner.java -d bin
 
 compileTestPositive:
 	mkdir -p bin
-	javac -classpath /usr/share/java/junit4.jar src/Distant.java \
+	javac -classpath /usr/share/java/junit4.jar src/Distant.java src/UnhandledCaseException.java \
 	testcase/Positive/TestDistantPositive.java testcase/Positive/TestRunnerPositive.java -d bin
 
 compileTestNegative:
 	mkdir -p bin
-	javac -classpath /usr/share/java/junit4.jar src/Distant.java \
+	javac -classpath /usr/share/java/junit4.jar src/Distant.java src/UnhandledCaseException.java \
 	testcase/Negative/TestDistantNegative.java testcase/Negative/TestRunnerNegative.java -d bin
 
 test:
