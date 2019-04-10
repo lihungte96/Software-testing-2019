@@ -51,5 +51,8 @@ showCov:
 	RED="\033[0;31m" ; NC='\033[0m' ; printf "$${RED}http://" ; curl -s https://api.ipify.org/ ; printf ":8000/$${NC}\n"
 	cd bin/reportDir ; python3 -m http.server 8000
 
+kill:
+	killall python3
+
 clean:
 	rm -r bin/*.class bin/*.exec bin/reportDir bin/Positive bin/Negative || true
