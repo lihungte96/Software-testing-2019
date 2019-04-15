@@ -32,30 +32,8 @@ public class TestTcpClient {
 	}
 
 	@Test
-	public void testTcpClientWithStub() throws Exception {
-		final String initialString = "testTcpClient";
-		final InputStream targetStream = new ByteArrayInputStream(initialString.getBytes());
-
-		TcpClient tcpClient = new TcpClient(null, -1) {
-			@Override
-			public void communicate() throws Exception {
-				setInputStream(targetStream);
-			}
-		};
-
-		// tcpClient.connect();
-		tcpClient.communicate();
-		tcpClient.parseInput();
-		StringBuffer sb = tcpClient.getBuf();
-		assertEquals(initialString, sb.toString());
-	}
-
-	@Test
-	public void testTcpClientWithStubMockito() throws Exception {
+	public void testTcpClientWithMockMockito() throws Exception {
 		Socket clientMock = mock(Socket.class);
-		final String initialString = "testTcpClient";
-		final InputStream targetStream = new ByteArrayInputStream(initialString.getBytes());
-		when(clientMock.getInputStream()).thenReturn(targetStream);
 
 		TcpClient tcpClient = new TcpClient(null, -1) {
 			@Override
@@ -66,8 +44,23 @@ public class TestTcpClient {
 
 		tcpClient.connect();
 		tcpClient.communicate();
-		tcpClient.parseInput();
-		StringBuffer sb = tcpClient.getBuf();
-		// assertEquals(initialString, sb.toString());
+
+		verify(clientMock).getInputStream();
+	}
+
+	@Test
+	public void testTcpClientWithMockMockitoVerify() throws Exception {
+		Socket clientMock = mock(Socket.class);
+
+		TcpClient tcpClient = new TcpClient(null, -1) {
+			@Override
+			public void connect() throws Exception {
+				setClient(clientMock);
+			}
+		};
+
+		tcpClient.connect();
+
+		verify(clientMock, never()).getInputStream();
 	}
 }
