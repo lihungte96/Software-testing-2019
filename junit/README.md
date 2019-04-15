@@ -35,3 +35,7 @@ $ make
 
 ### week8
 #### [jacoco Labwork](jacocoLW): Labwork for jacoco, need add testcase and achieve 100% coverage
+
+### week9
+#### [Stub](stub): Stub example, and use Mockito to mock
+#### [Mock](mock): Mock example, and use Mockito to mock
