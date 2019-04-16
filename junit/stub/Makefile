@@ -37,4 +37,4 @@ kill:
 	killall python3
 
 clean:
-	rm -r bin/*.class bin/*.exec bin/reportDir bin/Positive bin/Negative || true
+	rm -r bin/*.class bin/*.exec bin/reportDir 2> /dev/null || true

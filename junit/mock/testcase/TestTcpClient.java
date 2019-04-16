@@ -1,19 +1,17 @@
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 import org.junit.*; // before after ...
 
-import java.io.ByteArrayInputStream;
+import static org.junit.Assert.assertEquals;
+
 import java.io.InputStream;
-import java.net.*;
+import java.io.ByteArrayInputStream;
 
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-import org.mockito.Mockito.*;
+import java.net.*; // Socket
 
+import org.mockito.Mockito.*; // java mock: Mockito
 import static org.mockito.Mockito.*;
 
 public class TestTcpClient {	
-
 	@Test
 	public void testTcpClientWithServer() throws Exception {
 		final String initialString = "From Server : Hi !"; // Guess what server response // Not good
