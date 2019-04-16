@@ -5,36 +5,21 @@ import java.io.*;
 // 2. 本程式必須有一個參數，指定伺服器的 IP。
 // 用法範例： java TcpClient
 
-public class TcpClient {
-    private String ip;
-    private int port;
+class TcpClientParseCommunicate {
     private Socket client;
     private InputStream inputStream;
     private StringBuffer buf;
 
-    public TcpClient(String ip, int port) {
-        this.ip = ip;
-        this.port = port;
-    }
-
-    public void setClient(Socket client) {
+    public TcpClientParseCommunicate(Socket client) {
         this.client = client;
-    }
-
-    public void setInputStream(InputStream inputStream) {
-        this.inputStream = inputStream;
     }
 
     public StringBuffer getBuf() {
         return buf;
     }
 
-    public void connect() throws Exception {
-        client = new Socket(ip, port); // 連接至本機
-    }
-
     public void communicate() throws Exception {
-        setInputStream(client.getInputStream()); // 取得輸入訊息的串流
+        this.inputStream = client.getInputStream(); // 取得輸入訊息的串流
     }
 
     public void parseInput() throws Exception {
@@ -52,7 +37,24 @@ public class TcpClient {
         }
     }
 
+}
+
+public class TcpClient {
+    private Socket client;
+    private TcpClientParseCommunicate tcpClientParseCommunicate;
+
+    public TcpClient(String ip, int port) throws Exception {
+        client = new Socket(ip, port); // 連接至遠端機器
+    }
+
+    public void read() throws Exception {
+        tcpClientParseCommunicate = new TcpClientParseCommunicate(client);
+        tcpClientParseCommunicate.communicate();
+        tcpClientParseCommunicate.parseInput();
+    }
+
     public void output() throws Exception {
+        StringBuffer buf = tcpClientParseCommunicate.getBuf();
         System.out.println(buf); // 印出接收到的訊息。
         client.close();
     }

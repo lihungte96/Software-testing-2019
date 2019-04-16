@@ -11,9 +11,7 @@ public class TcpExample {
             tcpServer.tcpServer();
         } else if ("client".equals(args[0])) {
             TcpClient tcpClient = new TcpClient("127.0.0.1", port);
-            tcpClient.connect();
-            tcpClient.communicate();
-            tcpClient.parseInput();
+            tcpClient.read();
             tcpClient.output();
         }
     }

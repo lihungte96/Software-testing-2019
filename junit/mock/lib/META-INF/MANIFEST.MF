@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: JaCoCo Java Agent
+Automatic-Module-Name: org.jacoco.agent.rt
+Premain-Class: org.jacoco.agent.rt.internal_1f1cc91.PreMain
+Implementation-Version: 0.8.3
+Archiver-Version: Plexus Archiver
+Built-By: godin
+Created-By: Apache Maven
+Build-Jdk: 1.8.0_152
+Implementation-Vendor: Mountainminds GmbH & Co. KG
+

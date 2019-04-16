@@ -15,6 +15,8 @@ make compileTest - Compile Junit testing class
 
 make test - Do unittest
 
+### Show Jacoco coverage Web page
+
 make Simple - make {clean, compileTest, runCov, calCov, showCov}
 
 make runCov - Execute & record code coverage

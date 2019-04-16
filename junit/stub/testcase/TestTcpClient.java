@@ -11,63 +11,60 @@ import org.mockito.stubbing.Answer;
 import org.mockito.Mockito.*;
 
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.withSettings;
-//import static org.mockito.Mockito.CALLS_REAL_METHODS;
 
 public class TestTcpClient {
-
-	@Before
-	public void setup() {
-	}
-
 	@Test
 	public void testTcpClientWithServer() throws Exception {
-		final String initialString = "From Server : Hi !";
-		TcpClient tcpClient = new TcpClient("127.0.0.1", 6666);
-		tcpClient.connect();
-		tcpClient.communicate();
-		tcpClient.parseInput();
-		StringBuffer sb = tcpClient.getBuf();
+		final String initialString = "From Server : Hi !"; // Guess what server response // Not good
+
+		final Socket socket = new Socket("127.0.0.1", 6666);
+
+		TcpClientParseCommunicate tcpClientParseCommunicate = new TcpClientParseCommunicate(socket);
+		tcpClientParseCommunicate.communicate();
+		tcpClientParseCommunicate.parseInput();
+		StringBuffer sb = tcpClientParseCommunicate.getBuf();
+
 		assertEquals(initialString, sb.toString());
 	}
 
 	@Test
 	public void testTcpClientWithStub() throws Exception {
-		final String initialString = "testTcpClient";
+		final String initialString = "testTcpClientWithStub";
 		final InputStream targetStream = new ByteArrayInputStream(initialString.getBytes());
 
-		TcpClient tcpClient = new TcpClient(null, -1) {
-			@Override
-			public void communicate() throws Exception {
-				setInputStream(targetStream);
+		class SocketStub extends Socket {
+			SocketStub(String host, int port) {
+				// Without connect with remote
 			}
-		};
 
-		// tcpClient.connect();
-		tcpClient.communicate();
-		tcpClient.parseInput();
-		StringBuffer sb = tcpClient.getBuf();
+			public InputStream getInputStream() {
+				return targetStream;
+			}
+		}
+
+		final Socket socket = new SocketStub(null, -1);
+
+		TcpClientParseCommunicate tcpClientParseCommunicate = new TcpClientParseCommunicate(socket);
+		tcpClientParseCommunicate.communicate();
+		tcpClientParseCommunicate.parseInput();
+		StringBuffer sb = tcpClientParseCommunicate.getBuf();
+
 		assertEquals(initialString, sb.toString());
 	}
 
 	@Test
 	public void testTcpClientWithStubMockito() throws Exception {
-		Socket clientMock = mock(Socket.class);
-		final String initialString = "testTcpClient";
+		final String initialString = "testTcpClientWithStubMockito";
 		final InputStream targetStream = new ByteArrayInputStream(initialString.getBytes());
-		when(clientMock.getInputStream()).thenReturn(targetStream);
 
-		TcpClient tcpClient = new TcpClient(null, -1) {
-			@Override
-			public void connect() throws Exception {
-				setClient(clientMock);
-			}
-		};
+		Socket clientStub = mock(Socket.class);
+		when(clientStub.getInputStream()).thenReturn(targetStream);
 
-		tcpClient.connect();
-		tcpClient.communicate();
-		tcpClient.parseInput();
-		StringBuffer sb = tcpClient.getBuf();
-		// assertEquals(initialString, sb.toString());
+		TcpClientParseCommunicate tcpClientParseCommunicate = new TcpClientParseCommunicate(clientStub);
+		tcpClientParseCommunicate.communicate();
+		tcpClientParseCommunicate.parseInput();
+		StringBuffer sb = tcpClientParseCommunicate.getBuf();
+
+		assertEquals(initialString, sb.toString());
 	}
 }

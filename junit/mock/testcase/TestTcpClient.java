@@ -11,23 +11,20 @@ import org.mockito.stubbing.Answer;
 import org.mockito.Mockito.*;
 
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.withSettings;
-//import static org.mockito.Mockito.CALLS_REAL_METHODS;
 
-public class TestTcpClient {
-
-	@Before
-	public void setup() {
-	}
+public class TestTcpClient {	
 
 	@Test
 	public void testTcpClientWithServer() throws Exception {
-		final String initialString = "From Server : Hi !";
-		TcpClient tcpClient = new TcpClient("127.0.0.1", 6666);
-		tcpClient.connect();
-		tcpClient.communicate();
-		tcpClient.parseInput();
-		StringBuffer sb = tcpClient.getBuf();
+		final String initialString = "From Server : Hi !"; // Guess what server response // Not good
+
+		final Socket socket = new Socket("127.0.0.1", 6666);
+
+		TcpClientParseCommunicate tcpClientParseCommunicate = new TcpClientParseCommunicate(socket);
+		tcpClientParseCommunicate.communicate();
+		tcpClientParseCommunicate.parseInput();
+		StringBuffer sb = tcpClientParseCommunicate.getBuf();
+
 		assertEquals(initialString, sb.toString());
 	}
 
@@ -35,16 +32,9 @@ public class TestTcpClient {
 	public void testTcpClientWithMockMockito() throws Exception {
 		Socket clientMock = mock(Socket.class);
 
-		TcpClient tcpClient = new TcpClient(null, -1) {
-			@Override
-			public void connect() throws Exception {
-				setClient(clientMock);
-			}
-		};
-
-		tcpClient.connect();
-		tcpClient.communicate();
-
+		TcpClientParseCommunicate tcpClientParseCommunicate = new TcpClientParseCommunicate(clientMock);
+		tcpClientParseCommunicate.communicate();
+		
 		verify(clientMock).getInputStream();
 	}
 
@@ -52,15 +42,8 @@ public class TestTcpClient {
 	public void testTcpClientWithMockMockitoVerify() throws Exception {
 		Socket clientMock = mock(Socket.class);
 
-		TcpClient tcpClient = new TcpClient(null, -1) {
-			@Override
-			public void connect() throws Exception {
-				setClient(clientMock);
-			}
-		};
-
-		tcpClient.connect();
-
+		TcpClientParseCommunicate tcpClientParseCommunicate = new TcpClientParseCommunicate(clientMock);
+		
 		verify(clientMock, never()).getInputStream();
 	}
 }

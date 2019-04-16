@@ -1,6 +1,6 @@
 all: compile compileTest
 
-Simple: clean compileTest runCov calCov showCov
+Simple: compileTest runCov calCov showCov
 
 compile:
 	mkdir -p bin
