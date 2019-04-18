@@ -10,6 +10,8 @@ public class TestTcpSocket {
     public void testTcpClientWithServer() throws Exception {
         final String initialString = "From Server : Hi !"; // Guess what server response // Not good
 
+        System.out.println("Try to connect with remote server");
+
         final Socket socket = new Socket("127.0.0.1", 6666);
 
         TcpClientParseCommunicate tcpClientParseCommunicate = new TcpClientParseCommunicate(socket);

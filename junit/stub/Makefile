@@ -1,5 +1,7 @@
 all: compile compileTest
 
+SimpleSocket: compileTest runSocketCov calCov showCov
+
 Simple: compileTest runCov calCov showCov
 
 compile:
@@ -23,6 +25,10 @@ testSocket:
 
 test:
 	cd bin ; java -classpath .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunner
+
+runSocketCov:
+	rm bin/*.exec 2> /dev/null || true
+	cd bin ; java -javaagent:../lib/jacocoagent.jar -cp .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunner Socket
 
 runCov:
 	rm bin/*.exec 2> /dev/null || true
