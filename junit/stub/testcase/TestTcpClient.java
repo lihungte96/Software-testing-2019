@@ -12,19 +12,6 @@ import org.mockito.Mockito.*; // java mock: Mockito
 import static org.mockito.Mockito.*;
 
 public class TestTcpClient {
-	@Test
-	public void testTcpClientWithServer() throws Exception {
-		final String initialString = "From Server : Hi !"; // Guess what server response // Not good
-
-		final Socket socket = new Socket("127.0.0.1", 6666);
-
-		TcpClientParseCommunicate tcpClientParseCommunicate = new TcpClientParseCommunicate(socket);
-		tcpClientParseCommunicate.communicate();
-		tcpClientParseCommunicate.parseInput();
-		StringBuffer sb = tcpClientParseCommunicate.getBuf();
-
-		assertEquals(initialString, sb.toString());
-	}
 
 	@Test
 	public void testTcpClientWithStub() throws Exception {

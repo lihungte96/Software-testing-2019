@@ -4,7 +4,12 @@ import org.junit.runner.notification.Failure;
 
 public class TestRunner {
     public static void main(String[] args) {
-        Result result = JUnitCore.runClasses(TestTcpClient.class);
+        Result result;
+        if (args.length >= 1 && "Socket".equals(args[0])) {
+            result = JUnitCore.runClasses(TestTcpSocket.class);
+        } else {
+            result = JUnitCore.runClasses(TestTcpClient.class);
+        }
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString());
         }

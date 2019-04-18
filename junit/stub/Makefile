@@ -16,7 +16,10 @@ compileTest:
 	mkdir -p bin
 	javac -classpath /usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar \
 	src/TcpClient.java \
-	testcase/TestTcpClient.java testcase/TestRunner.java -d bin
+	testcase/TestTcpClient.java testcase/TestTcpSocket.java testcase/TestRunner.java -d bin
+
+testSocket:
+	cd bin ; java -classpath .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunner Socket
 
 test:
 	cd bin ; java -classpath .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunner
