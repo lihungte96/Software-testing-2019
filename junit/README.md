@@ -41,3 +41,4 @@ $ make
 
 ### week10
 #### [Mock](mock): Mock example, and use Mockito to mock
+#### [Mock2](mock2): Mock Mazu example, and use Mockito to mock

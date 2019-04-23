@@ -5,7 +5,7 @@ public class Mazu {
         this.year = year;
     }
 
-    public void showMercyInDream(Dream dream, String receiverName, int mounth, int date) {
+    public void avatara(Dream dream, String receiverName, int mounth, int date) {
         dream.setReceiver(receiverName);
         dream.setDate(year, mounth, date);
         dream.show();

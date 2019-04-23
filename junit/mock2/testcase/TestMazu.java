@@ -28,7 +28,7 @@ public class TestMazu {
     @Test
     public void testMazuMockDreamShow() {
         Mazu cihuiMazu = new Mazu(yearInDate);
-        cihuiMazu.showMercyInDream(dreamMock, receiverName, mounthInDate, dateInDate);
+        cihuiMazu.avatara(dreamMock, receiverName, mounthInDate, dateInDate);
 
         verify(dreamMock).show();
     }
@@ -36,8 +36,8 @@ public class TestMazu {
     @Test
     public void testMazuMockDreamShowTwice() {
         Mazu cihuiMazu = new Mazu(yearInDate);
-        cihuiMazu.showMercyInDream(dreamMock, receiverName, mounthInDate, dateInDate);
-        cihuiMazu.showMercyInDream(dreamMock, receiverName, mounthInDate, dateInDate);
+        cihuiMazu.avatara(dreamMock, receiverName, mounthInDate, dateInDate);
+        cihuiMazu.avatara(dreamMock, receiverName, mounthInDate, dateInDate);
 
         verify(dreamMock, times(2)).show();
     }
@@ -52,7 +52,7 @@ public class TestMazu {
     @Test
     public void testMazuMockDreamSetReceiver() {
         Mazu cihuiMazu = new Mazu(yearInDate);
-        cihuiMazu.showMercyInDream(dreamMock, receiverName, mounthInDate, dateInDate);
+        cihuiMazu.avatara(dreamMock, receiverName, mounthInDate, dateInDate);
 
         verify(dreamMock).setReceiver(receiverName);
         // verify(dreamMock).setReceiver("Me");
@@ -62,7 +62,7 @@ public class TestMazu {
     public void testMazuMockDreamSetReceiverArgumentAny() {
 
         Mazu cihuiMazu = new Mazu(yearInDate);
-        cihuiMazu.showMercyInDream(dreamMock, receiverName, mounthInDate, dateInDate);
+        cihuiMazu.avatara(dreamMock, receiverName, mounthInDate, dateInDate);
 
         verify(dreamMock).setReceiver(anyString());
     }
@@ -72,7 +72,7 @@ public class TestMazu {
         ArgumentCaptor<String> argument = ArgumentCaptor.forClass(String.class);
 
         Mazu cihuiMazu = new Mazu(yearInDate);
-        cihuiMazu.showMercyInDream(dreamMock, receiverName, mounthInDate, dateInDate);
+        cihuiMazu.avatara(dreamMock, receiverName, mounthInDate, dateInDate);
 
         verify(dreamMock).setReceiver(argument.capture());
         String actualReceiverName = argument.getValue();
@@ -83,7 +83,7 @@ public class TestMazu {
     @Test
     public void testMazuMockDreamSetDateArgumentAny() {
         Mazu cihuiMazu = new Mazu(yearInDate);
-        cihuiMazu.showMercyInDream(dreamMock, receiverName, mounthInDate, dateInDate);
+        cihuiMazu.avatara(dreamMock, receiverName, mounthInDate, dateInDate);
 
         verify(dreamMock).setDate(anyInt(), anyInt(), anyInt());
     }
@@ -94,7 +94,7 @@ public class TestMazu {
         ArgumentCaptor<Integer> argument = ArgumentCaptor.forClass(Integer.class);
 
         Mazu cihuiMazu = new Mazu(yearInDate);
-        cihuiMazu.showMercyInDream(dreamMock, receiverName, mounthInDate, dateInDate);
+        cihuiMazu.avatara(dreamMock, receiverName, mounthInDate, dateInDate);
 
         verify(dreamMock).setDate(argument.capture(), argument.capture(), argument.capture());
         List actualReceiverName = argument.getAllValues();
