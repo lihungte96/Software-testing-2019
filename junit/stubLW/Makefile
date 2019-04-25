@@ -1,7 +1,5 @@
 all: compileTest
 
-SimpleSocket: compileTest runSocketCov calCov showCov
-
 Simple: compileTest runCov calCov showCov
 
 compileTest:
@@ -9,9 +7,6 @@ compileTest:
 	javac -classpath /usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar \
 	src/Factorization.java src/Multiplication.java \
 	testcase/TestMultiplication.java  testcase/TestRunner.java -d bin
-
-testSocket:
-	cd bin ; java -classpath .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunner Socket
 
 test:
 	cd bin ; java -classpath .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunner
