@@ -40,6 +40,8 @@ $ make
 #### [Stub](stub): Stub example, and use Mockito to stub
 
 ### week10
-#### [StubLW](stubLW): Labwork for Stub, complete testcase & achieve 100% coverage in multiplicationWithArray method
 #### [Mock](mock): Mock example, and use Mockito to mock
 #### [Mock2](mock2): Mock Mazu example, and use Mockito to mock
+
+### week11
+#### [StubLW](stubLW): Labwork for Stub, complete testcase & achieve 100% coverage in multiplicationWithArray method
