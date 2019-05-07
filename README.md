@@ -9,3 +9,8 @@
 * Week 8: 2019/04/11
 * Week 9: 2019/04/16
 * Week 10: 2019/04/23
+* Week 11: 2019/04/30
+
+## [travis](https://github.com/lihungte96/Software-testing-2019-travis)
+* Week 12: 2019/05/07
+

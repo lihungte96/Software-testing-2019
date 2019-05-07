@@ -7,6 +7,7 @@ public class TestRunner {
         Result result;
         if (args.length >= 1 && "Socket".equals(args[0])) {
             result = JUnitCore.runClasses(TestTcpSocket.class);
+            result = JUnitCore.runClasses(TestTcpClient.class);
         } else {
             result = JUnitCore.runClasses(TestTcpClient.class);
         }

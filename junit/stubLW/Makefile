@@ -2,18 +2,33 @@ all: compileTest
 
 Simple: compileTest runCov calCov showCov
 
+SimpleANS: compileTestANS runCovANS calCov showCov
+
 compileTest:
 	mkdir -p bin
 	javac -classpath /usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar \
 	src/Factorization.java src/Multiplication.java \
 	testcase/TestMultiplication.java  testcase/TestRunner.java -d bin
 
+compileTestANS:
+	mkdir -p bin
+	javac -classpath /usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar \
+	src/Factorization.java src/Multiplication.java \
+	testcase/TestMultiplicationANS.java  testcase/TestRunnerANS.java -d bin
+
 test:
 	cd bin ; java -classpath .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunner
+
+testANS:
+	cd bin ; java -classpath .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunnerANS
 
 runCov:
 	rm bin/*.exec 2> /dev/null || true
 	cd bin ; java -javaagent:../lib/jacocoagent.jar -cp .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunner
+
+runCovANS:
+	rm bin/*.exec 2> /dev/null || true
+	cd bin ; java -javaagent:../lib/jacocoagent.jar -cp .:/usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar TestRunnerANS
 
 calCov:
 	cd bin ; java -jar ../lib/jacococli.jar report jacoco.exec --classfiles ../bin \
