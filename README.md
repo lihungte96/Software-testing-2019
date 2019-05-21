@@ -13,4 +13,7 @@
 
 ## [travis](https://github.com/lihungte96/Software-testing-2019-travis)
 * Week 12: 2019/05/07
+* Week 13: 2019/05/14
 
+## [Selenium](selenium)
+* Week 14: 2019/05/21
