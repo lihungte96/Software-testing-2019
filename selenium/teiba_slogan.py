@@ -43,7 +43,7 @@ class TiebaSlogan(unittest.TestCase):
     def test_taiwan_warning(self):
         # find element
         search_box = self.driver.find_element_by_xpath('//*[@id="wd1"]')
-        search_box.send_keys('taiwan')
+        search_box.send_keys('台湾')
         search_box.submit()
         slogan = self.driver.find_element_by_xpath(
             '/html/body/div[2]/div/div[2]/div[1]/h2')
