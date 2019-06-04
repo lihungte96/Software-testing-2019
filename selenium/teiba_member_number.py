@@ -35,7 +35,7 @@ class TiebaSlogan(unittest.TestCase):
         with self.assertRaises(NoSuchElementException):
             # find element
             search_box = self.driver.find_element_by_xpath('//*[@id="wd1"]')
-            search_box.send_keys('taiwan')
+            search_box.send_keys('台湾')
             search_box.submit()
             memNum = self.driver.find_element_by_class_name('card_menNum')
             self.assertGreaterEqual(int(memNum.text.replace(',', '')), 371700)
