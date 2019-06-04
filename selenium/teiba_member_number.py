@@ -9,7 +9,7 @@ class TiebaSlogan(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         # start web driver, open a browser
-        self.driver = webdriver.Chrome("/Users/robert/Downloads/chromedriver")
+        self.driver = webdriver.Chrome()
 
     def setUp(self):
         # open web page
